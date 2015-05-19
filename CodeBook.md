@@ -6,7 +6,7 @@ Details of the fields in the source data is included in the data set as the file
 
 The script "run_analysys.R" processes the data as follows:
 * The training data ("X_train.txt", 7,532 observations) and the test data ("X_test.txt", 2,947 observations) are merged together to produce a dataset of 10,299 observations.
-* Variables other than those that provided _mean_ and _standard deviation_ were discarded from the combined data set, reducing the number of variables from 561 to 66.  This was achieved by matching the column indexes to those produced by querying the variable names contained in "features.txt" matched against the regular expression _"-mean\\(\\)|-std\\(\\)"_.  The same column filtering was applied against the data read in from "features.txt" to provide the variable names to be applied in a subsequent step.
+* Variables other than those that provided _mean_ and _standard deviation_ were discarded from the combined data set, reducing the number of variables from 561 to 66.  This was achieved by matching the column indexes to those produced by querying the variable names contained in "features.txt" matched against the regular expression `-mean\\(\\)|-std\\(\\)`.  The same column filtering was applied against the data read in from "features.txt" to provide the variable names to be applied in a subsequent step.
 * The corresponding _subject_ data ("subject_train.txt" & "subject_test.txt") and the activity data ("Y_train.txt" & "Y_test.txt") were merged correspondingly before being joined to the combined observation data set to produce a data set with 10,299 observations for 68 variables commencing with _subject_ and _activity_.
 * Finally, the variable names retained from processing "features.txt" are processed to replace hyphens with underscores and remove brackets _()_ (making them more tolerable as R column names) before they were then applied to the cleaned up data set.
 * The result of the above processing is written out as "UCI_HAR_Dataset_cleaned.txt"
@@ -17,6 +17,7 @@ A list of the variable names in the _summary_ data set follows.  The first two v
 * replace underscores ("\_") with hyphens ("-")
 * re-insert a pair of brackets ("()") after the last occurrence of _mean_ or _std_
 
+```
 [1] "subject"                        "activity"                       "mean_tBodyAcc_mean_X"
 [4] "mean_tBodyAcc_mean_Y"           "mean_tBodyAcc_mean_Z"           "mean_tBodyAcc_std_X"
 [7] "mean_tBodyAcc_std_Y"            "mean_tBodyAcc_std_Z"            "mean_tGravityAcc_mean_X"
@@ -40,5 +41,6 @@ A list of the variable names in the _summary_ data set follows.  The first two v
 [61] "mean_fBodyAccMag_mean"          "mean_fBodyAccMag_std"           "mean_fBodyBodyAccJerkMag_mean"
 [64] "mean_fBodyBodyAccJerkMag_std"   "mean_fBodyBodyGyroMag_mean"     "mean_fBodyBodyGyroMag_std"
 [67] "mean_fBodyBodyGyroJerkMag_mean" "mean_fBodyBodyGyroJerkMag_std"
+```
 
 The summary data produced by the script can be read into R from the current directory with the command `read.table("UCI_HAR_Dataset_summary.txt", header=TRUE)`
