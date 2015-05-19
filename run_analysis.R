@@ -2,7 +2,7 @@
 # run_analysys.R
 #
 # Script that downloads raw data, tidies it up and produces separate tidy
-# summary file.
+# summary file named "UCI_HAR_Dataset_summary.txt".
 #
 # Requirement: This script assumes the following packages have been installed
 # prior to execution.
@@ -35,7 +35,7 @@ unzip(localzip)
 
 # dplyr functions will be useful here
 library(dplyr)
-## Note: Use of tbl_df below is only to help during development, it is not necessart in the final version.
+## Note: Use of tbl_df below is only to help during development, it is not necessary in the final version.
 
 # base level data
 ##featuresRAW <- read.table(file.path(localdata, "features.txt")) # 561 x 2
