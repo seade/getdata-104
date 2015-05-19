@@ -17,6 +17,8 @@ A list of the variable names in the _summary_ data set follows.  The first two v
 * replace underscores ("\_") with hyphens ("-")
 * re-insert a pair of brackets ("()") after the last occurrence of _mean_ or _std_
 
+You can then refer to the code book for the original data set, "features_info.txt" within the "UCI HAR Dataset" directory produced by expanding the source data zip file ("UCI_HAR_Dataset.zip").
+
 ```
 [1] "subject"                        "activity"                       "mean_tBodyAcc_mean_X"
 [4] "mean_tBodyAcc_mean_Y"           "mean_tBodyAcc_mean_Z"           "mean_tBodyAcc_std_X"
